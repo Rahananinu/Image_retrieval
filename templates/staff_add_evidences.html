@@ -1,0 +1,106 @@
+{%include 'staff_header.html'%}
+
+
+
+  
+  <!-- HEADER-TEXT-SLIDE-START -->
+  <div class="header-text-area">
+    <div class="header-text-carousel text-center">
+        <div class="header-text">
+            <div class="header-bg header-bg-1"></div>
+            <div class="header-single-text">
+                <h1>WELCOME STAFF</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-2"></div>
+            <div class="header-single-text">
+                <h1>if you run you'll <br> only die tired</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-3"></div>
+            <div class="header-single-text">
+                <h1>Welcome to our  <br> Website</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HEADER-TEXT-SLIDE-END-->
+</header>
+<!-- HEADER-AREA-END -->
+
+
+    <section class="about-area section-padding">
+        <div class="container">
+            <div class="row  wow fadeIn">
+                <div class="col-xs-12 text-center">
+                    <div class="page-title">
+                        <h2 style="color:black">EVIDENCES</h2>
+                    </div>
+                </div>
+
+
+
+<center>
+<form action="" method="post" enctype="multipart/form-data">
+    <table class="table" style="width: 400px;">
+        <tr>
+            <th>UPLOAD EVIDENCE</th>
+        </tr>
+        <tr>
+            <td><input type="file" name="evidence"></td>
+        </tr>
+        <tr>
+            <th><input type="submit" class="btn btn-primary" name="submit"></th>
+        </tr>
+    </table>
+</form>
+
+<h3>{{val}}</h3>
+
+<section class="about-area section-padding">
+    <div class="container">
+        <div class="row  wow fadeIn">
+            <div class="col-xs-12 text-center">
+                <div class="page-title">
+                    <h2 style="color:black">RELATED CASES</h2>
+                </div>
+            </div>
+
+<table class="table" style="width: 1000px;">
+    <tr>
+        <th>SLNO</th>
+        <th>STATION NAME</th>
+        <th>CASE NAME</th>
+        <th>DETAILS</th>
+        <th>DATE</th>
+    </tr>
+    {%for i in value['view']%}
+    <tr>
+        <td>{{i['case_id']}}</td>
+        <td>{{i['station_name']}}</td>
+        <td>{{i['case_name']}}</td>
+        <td>{{i['details']}}</td>
+        <td>{{i['date']}}</td>
+        <td><a href="/crime_image?id={{i['case_id']}}">EVIDENCE</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+</center>
+
+
+<br><br><br><br>
+
+
+<style>
+    th,td{
+        color: black;
+    }
+</style>
+
+{%include 'footer.html'%}

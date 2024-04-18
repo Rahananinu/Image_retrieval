@@ -1,0 +1,116 @@
+{%include 'police_header.html'%}
+
+
+
+
+  <!-- HEADER-TEXT-SLIDE-START -->
+  <div class="header-text-area">
+    <div class="header-text-carousel text-center">
+        <div class="header-text">
+            <div class="header-bg header-bg-1"></div>
+            <div class="header-single-text">
+                <h1>WELCOME POLICE STATION</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-2"></div>
+            <div class="header-single-text">
+                <h1>if you run you'll <br> only die tired</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-3"></div>
+            <div class="header-single-text">
+                <h1>Welcome to our  <br> Website</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HEADER-TEXT-SLIDE-END-->
+</header>
+
+
+
+
+<section class="about-area section-padding">
+    <div class="container">
+        <div class="row  wow fadeIn">
+            <div class="col-xs-12 text-center">
+                <div class="page-title">
+                    <h2 style="color:black">ADD CASESE</h2>
+                </div>
+            </div>
+
+
+<center>
+<form action="" method="post">
+    <table class="table" style="width:500px">
+    
+        <tr>
+            <th>CASE NAME</th>
+            <td><input type="text" name="case_name" required></td>
+        </tr>
+        <tr>
+            <th>DETAILS</th>
+            <td><input type="text" name="details" required></td>
+        </tr>
+        <tr>
+            <th><input type="submit" name="submit" class="btn btn-primary"></th>
+        </tr>
+    </table>
+</form>
+
+
+
+<section class="about-area section-padding">
+    <div class="container">
+        <div class="row  wow fadeIn">
+            <div class="col-xs-12 text-center">
+                <div class="page-title">
+                    <h2 style="color:black"> CASESE</h2>
+                </div>
+            </div>
+
+<table class="table" style="width:500px">
+    <tr>
+        <th>SLNO</th>
+        <th>CASE NAME</th>
+        <th>DETAILS</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['case_name']}}</td>
+        <td>{{i['details']}}</td>
+        <td><a href="?action=assign_case&id={{i['case_id']}}">ASSIGN STAFF</a></td>
+       {%if data['staff']%}
+       <form action="" method="post">
+        <td><select name="staff" id="">
+            {%for i in data['staff']%}
+            <option value="{{i['staff_id']}}">{{i['staff_name']}}</option>
+            {%endfor%}
+
+        </select><input type="submit" name="assign">
+    </td>
+    </form>
+        {%endif%}
+    </tr>
+    {%endfor%}
+</table>
+
+</center>
+
+
+<style>
+    th,td{
+        color:black;
+    }
+</style>
+
+
+
+
+{%include 'footer.html'%}

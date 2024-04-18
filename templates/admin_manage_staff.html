@@ -1,0 +1,180 @@
+{%include 'admin_header.html'%}
+
+
+
+  
+  <!-- HEADER-TEXT-SLIDE-START -->
+  <div class="header-text-area">
+    <div class="header-text-carousel text-center">
+        <div class="header-text">
+            <div class="header-bg header-bg-1"></div>
+            <div class="header-single-text">
+                <h1>WELCOME ADMIN</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-2"></div>
+            <div class="header-single-text">
+                <h1>if you run you'll <br> only die tired</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-3"></div>
+            <div class="header-single-text">
+                <h1>Welcome to our  <br> Website</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HEADER-TEXT-SLIDE-END-->
+</header>
+<!-- HEADER-AREA-END -->
+
+
+    <section class="about-area section-padding">
+        <div class="container">
+            <div class="row  wow fadeIn">
+                <div class="col-xs-12 text-center">
+                    <div class="page-title">
+                        <h2 style="color:black">MANAGE STAFFS</h2>
+                    </div>
+                </div>
+
+
+                <center>
+
+    {%if data['up']%}
+    <form action="" method="post">
+        <table class="table" style="width:500px">
+        <tr>
+            <th>Station</th>
+            <td><select name="station" class="form-control" id="">
+                {%for i in data['station']%}
+                <option value="{{i['station_id']}}">{{i['station_name']}}</option>
+                {%endfor%}
+            </select></td>
+        </tr>
+        <tr>
+            <th>Staff name</th>
+            <td><input type="text" name="name" class="form-control" value="{{data['up'][0]['staff_name']}}"></td>
+        </tr>
+        <tr>
+            <th>Place</th>
+            <td><input type="text" name="place" class="form-control" id="" value="{{data['up'][0]['place']}}"></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input type="text" name="phone" class="form-control"   id="" value="{{data['up'][0]['phone']}}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" name="email" class="form-control"  id="" value="{{data['up'][0]['email']}}"></td>
+        </tr>
+        <tr>
+            <th>Designation</th>
+            <td><input type="text" name="desig" class="form-control"  id="" value="{{data['up'][0]['designation']}}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn btn-primary" name="update" id=""></td>
+        </tr>
+    </table>
+    </form>
+    {%else%}
+
+    <form action="" method="post">
+        <table class="table" style="width:500px">
+        <tr>
+            <th>Station</th>
+            <td><select name="station" id="" class="form-control">
+                {%for i in data['station']%}
+                <option value="{{i['station_id']}}">{{i['station_name']}}</option>
+                {%endfor%}
+            </select></td>
+        </tr>
+        <tr>
+            <th>Staff name</th>
+            <td><input type="text" name="name" required class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Place</th>
+            <td><input type="text" name="place" required class="form-control" id=""></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input type="text" name="phone" required class="form-control" id=""></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" name="email" required class="form-control" id=""></td>
+        </tr>
+        <tr>
+            <th>Designation</th>
+            <td><input type="text" name="desig" required class="form-control" id=""></td>
+        </tr>
+        <tr>
+            <th>Username</th>
+            <td><input type="text" name="uname" required class="form-control" id=""></td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="password" name="pass" required class="form-control" id=""></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="btn btn-primary" name="submit" id=""></td>
+        </tr>
+    </table>
+    </form>
+
+
+    <section class="about-area section-padding">
+        <div class="container">
+            <div class="row  wow fadeIn">
+                <div class="col-xs-12 text-center">
+                    <div class="page-title">
+                        <h2 style="color:black">OUR STAFFS</h2>
+                    </div>
+                </div>
+
+
+    <table class="table" style="width:1000px">
+        <tr>
+            <th>Slno</th>
+            <th>Station Name</th>
+            <th>Staff Name</th>
+            <th>Place</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Designation</th>
+        </tr>
+        {%for i in data['view']%}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{i['station_name']}}</td>
+            <td>{{i['staff_name']}}</td>
+            <td>{{i['place']}}</td>
+            <td>{{i['phone']}}</td>
+            <td>{{i['email']}}</td>
+            <td>{{i['designation']}}</td>
+            <td><a href="?action=update&id={{i['staff_id']}}">UPDATE</a></td>
+            <td><a href="?action=delete&id={{i['staff_id']}}">DELETE</a></td>
+
+        </tr>
+        {%endfor%}
+    </table>
+    {%endif%}
+
+</center>
+
+
+<style>
+    th,td{
+        color:black;
+    }
+</style>
+
+<br><br><br><br>
+
+    {%include 'footer.html'%}

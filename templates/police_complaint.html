@@ -1,0 +1,92 @@
+{%include 'police_header.html'%}
+
+  <!-- HEADER-TEXT-SLIDE-START -->
+  <div class="header-text-area">
+    <div class="header-text-carousel text-center">
+        <div class="header-text">
+            <div class="header-bg header-bg-1"></div>
+            <div class="header-single-text">
+                <h1>WELCOME POLICE STATION</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-2"></div>
+            <div class="header-single-text">
+                <h1>if you run you'll <br> only die tired</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-3"></div>
+            <div class="header-single-text">
+                <h1>Welcome to our  <br> Website</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HEADER-TEXT-SLIDE-END-->
+</header>
+
+
+
+
+<section class="about-area section-padding">
+    <div class="container">
+        <div class="row  wow fadeIn">
+            <div class="col-xs-12 text-center">
+                <div class="page-title">
+                    <h2 style="color:black">COMPLAINT CORNER</h2>
+                </div>
+            </div>
+
+<center>
+<form action="" method="post">
+    <table class="table" style="width:400px">
+        <tr>
+            <th>TITLE</th>
+            <td><input type="text" name="title" required></td>
+        </tr>
+        <tr>
+            <th>DESCRIPTION</th>
+            <td><input type="text" name="description" required></td>
+        </tr>
+        <tr>
+            <th><input type="submit" class="btn btn-primary" name="submit" ></th>
+        </tr>
+
+    </table>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>SLNO</th>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+        <th>REPLY</th>
+        <th>DATE</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['title']}}</td>
+        <td>{{i['description']}}</td>
+        <td>{{i['reply']}}</td>
+        <td>{{i['date']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+</center>
+
+
+
+<style>
+    th,td{
+        color: black;
+    }
+</style>
+
+
+{%include 'footer.html'%}

@@ -1,0 +1,100 @@
+{%include 'staff_header.html'%}
+
+
+
+
+
+<!-- <table>
+    <tr>
+        <th>STAFF NAME</th>
+        <th>PLACE</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+        <th>DESIGNATION</th>
+        <th>STATION</th>
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{i['staff_name']}}</td>
+        <td>{{i['place']}}</td>
+        <td>{{i['phone']}}</td>
+        <td>{{i['email']}}</td>
+        <td>{{i['designation']}}</td>
+        <td>{{i['station_name']}}</td>
+    </tr>
+    {%endfor%}
+</table> -->
+
+<style>
+    .profile-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .profile-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        width: 300px; /* Adjusted width */
+        height: 400px; /* Adjusted height */
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .profile-img {
+        width: 70%;
+        height: 150px; /* Adjusted height */
+        object-fit: cover;
+        
+       
+   
+    }
+
+    .profile-info {
+        padding: 20px;
+    }
+
+    .profile-info p {
+        margin: 5px 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .profile-info p strong {
+        font-weight: bold;
+    }
+
+    .profile-info p:last-child {
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="profile-container">
+    {% for i in data['view'] %}
+    <div class="profile-card">
+        <center>
+        <img src="../static/images/user_pro.png"  alt="{{ i['staff_name'] }}" height="50px" width="50px" class="profile-img">
+        <p style="color: black;"><strong>Name: {{ i['staff_name'] }}</strong></p>
+
+    </center>
+        <div class="profile-info">
+            <p ><strong>Place: {{ i['place'] }}</strong></p>
+            <p><strong>Phone:</strong> {{ i['phone'] }}</p>
+            <p><strong>Email:</strong> {{ i['email'] }}</p>
+            <p><strong>Designation:</strong> {{ i['designation'] }}</p>
+            <p><strong>Station:</strong> {{ i['station_name'] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{%include 'footer.html'%}

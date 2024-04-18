@@ -1,0 +1,72 @@
+{%include 'staff_header.html'%}
+
+
+  
+  <!-- HEADER-TEXT-SLIDE-START -->
+  <div class="header-text-area">
+    <div class="header-text-carousel text-center">
+        <div class="header-text">
+            <div class="header-bg header-bg-1"></div>
+            <div class="header-single-text">
+                <h1>WELCOME STAFF</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-2"></div>
+            <div class="header-single-text">
+                <h1>if you run you'll <br> only die tired</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+        <div class="header-text">
+            <div class="header-bg header-bg-3"></div>
+            <div class="header-single-text">
+                <h1>Welcome to our  <br> Website</h1>
+                <!-- <a href="contact.html" class="btn default-button red-btn" title="Contact us">Contact us</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HEADER-TEXT-SLIDE-END-->
+</header>
+<!-- HEADER-AREA-END -->
+
+
+    <section class="about-area section-padding">
+        <div class="container">
+            <div class="row  wow fadeIn">
+                <div class="col-xs-12 text-center">
+                    <div class="page-title">
+                        <h2 style="color:black">VIEW CASE DETAILS</h2>
+                    </div>
+                </div>
+
+<center>
+<table class="table" style="width:600px">
+    <tr>
+        <th>SLNO</th>
+        <th>DESCRIPTION</th>
+        <th>DATE</th>
+
+    </tr>
+    {%for i in data['view']%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i['description']}}</td>
+        <td>{{i['date']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+</center>
+
+
+<style>
+    th,td{
+        color: black;
+    }
+</style>
+
+
+
+{%include 'footer.html'%}
